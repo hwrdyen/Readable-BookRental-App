@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { check, validationResult } from "express-validator";
 import User from "../models/user";
+import jwt from "jsonwebtoken";
 
 const router = express.Router();
 
@@ -35,6 +36,32 @@ router.post(
 
       let newUser = new User(req.body);
       await newUser.save();
+
+      // create a new jsonwebtoken
+      let jwt_token = jwt.sign(
+        // first parameter: object (info) you want to include in the token
+        { user_id: newUser._id },
+        // secret key used to sign the token
+        process.env.JWT_SECRET_KEY as string,
+        // optional setting (ex. token's expirationDate,...)
+        {
+          expiresIn: "1d",
+        }
+      );
+
+      // setting cookie inside the HTTP response
+      // send a cookie to the client's browser
+      res.cookie("auth_token", jwt_token, {
+        // restricts access to the cookie to HTTP requests only
+        // prevent client-side scripts accessing the cookie (cross-site scripting attacks)
+        httpOnly: true,
+
+        // cookie is only sent over a secure connection (HTTPS) in a production environment --> render.com default NODE_ENV = production
+        secure: process.env.NODE_ENV === "production",
+
+        // maximum age of the cookie (in ms)
+        maxAge: 1000 * 60 * 60 * 24, // 1d
+      });
 
       return res.status(200).send({ message: "User registered successfully!" });
     } catch (error) {
