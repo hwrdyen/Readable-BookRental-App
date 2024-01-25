@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div>
-      <div>Footer Page</div>
+      <div>--Footer Component--</div>
       <span>Readable</span>
       <span>
         <p>Privacy Policy</p>
