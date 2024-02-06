@@ -1,0 +1,38 @@
+@use "variable" as *;
+@use "typography" as *;
+@use "mixins" as *;
+
+* {
+  margin: unset;
+  padding: unset;
+  border: unset;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins-Regular";
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1rem;
+  color: $readable-slate;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1rem;
+  color: $readable-blue;
+}
+
+p {
+  font-weight: 600;
+  font-size: 1rem;
+  color: $readable-black;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
