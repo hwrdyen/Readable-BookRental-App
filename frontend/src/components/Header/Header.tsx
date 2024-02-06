@@ -2,11 +2,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div>
-      <div>--Header Component--</div>
-      <span>
-        <Link to="/">Readable</Link>
-      </span>
+    <div className="Header__Container">
+      <Link to="/">Readable</Link>
     </div>
   );
 };
