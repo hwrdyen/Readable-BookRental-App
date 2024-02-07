@@ -2,3 +2,9 @@
 @use "../styles/mixins" as *;
 @use "../styles/typography" as *;
 @use "../styles/variable" as *;
+
+.Layout {
+  &__Container {
+    background-color: $readable-olive;
+  }
+}

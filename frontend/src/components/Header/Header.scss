@@ -6,7 +6,7 @@
 .Header {
   &__Container {
     @include mobile {
-      margin: $mobile-side-margin $mobile-side-margin;
+      padding: $mobile-side-margin $mobile-side-margin;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -14,11 +14,46 @@
       text-align: center;
     }
     @include tablet {
-      margin: $mobile-side-margin $tablet-side-margin;
+      padding: $mobile-side-margin $tablet-side-margin;
+      flex-direction: row;
     }
     @include desktop {
-      margin: $tablet-side-margin $desktop-side-margin;
+      padding: $tablet-side-margin $desktop-side-margin;
       flex-direction: row;
+    }
+  }
+
+  &__Icon {
+    color: $readable-canva;
+  }
+
+  &__NavBar {
+    &--container {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      @include mobile {
+        justify-content: space-evenly;
+      }
+    }
+
+    &--title {
+      color: $readable-canva;
+    }
+
+    &--title:visited {
+      color: $readable-canva;
+    }
+  }
+
+  &__Auth {
+    &--container {
+      white-space: nowrap;
+    }
+    &--title {
+      color: $readable-canva;
     }
   }
 }

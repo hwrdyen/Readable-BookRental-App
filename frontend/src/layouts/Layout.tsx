@@ -8,7 +8,7 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div>
+    <div className="Layout__Container">
       <Header />
       <div>{children}</div>
       <Footer />
