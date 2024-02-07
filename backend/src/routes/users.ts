@@ -10,7 +10,7 @@ router.get("/register", async (req, res) => {
   return res.status(200).json({ message: "User Routes!" });
 });
 
-// POST /api/users/registration --> Create New User
+// POST /api/users/register --> Create New User
 router.post(
   "/register",
   [
